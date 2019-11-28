@@ -1,0 +1,14 @@
+version: '3'
+services:
+  # btcd
+  btcd:
+    volumes:
+      - './btcd-data:/btcd'
+    container_name: btcd-node
+    ports:
+      - '18333:18333'
+      - '127.0.0.1:18334:18334'
+    build: https://github.com/LN-Zap/docker-btcd.git
+    command:
+      - '--testnet'
+    restart: unless-stopped
